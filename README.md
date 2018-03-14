@@ -30,7 +30,7 @@ I. ToDo
   
 	Structure:
 		#	Name	              Type	
-		1	id (primary)	      int(11)		AUTO_INCREMENT
+		1	id (primary)	      int(11)		AUTO_INCREMENT	PRIMARY KEY
 		2	first_name	        varchar(20)
 		3	last_name	          varchar(20)
 		4	pct_avail	          decimal(3,2)
@@ -44,11 +44,29 @@ I. ToDo
 	Structure: TBD
 	
 	3. tasks:
-	Structure: TBD
+	Structure:
+		#	Name		Type	
+		1	idPrimary	int(11)		AUTO_INCREMENT	PRIMARY KEY	
+		2	name		varchar(100)			
+		3	priority	int(11)		
+		4	duration	decimal(5,2)			
+		5	start_by_date	date			
+		6	end_by_date	date			
+		7	real_start_date	date			
+		8	real_end_date	date			
+		9	status		varchar(15)			
+		10	successorID	int(11)			
+		11	notes		text
 	
-	4. workproducts
-	Structure: TBD
-
+	4. JNCT_Resources_Tasks - Junction table to establish many/many relationship between RESOURCES and TASKS
+	Structure:
+		#	Name			Type
+		1 	Resources_Tasks_ID	int(11) AUTO_INCREMENT	PRIMARY KEY
+		2	Resource_FK		int(11)			FOREIGN KEY for RESOURCES
+		3	Task_FK			int(11)			FOREIGN KEY for TASKS
+		
+	
+	
 Notes:
 
 3/14/18:
