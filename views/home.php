@@ -4,43 +4,40 @@
  *                                                                            *
  *                                                                            *
  *                                                                            *
- *     R E S O U R C E   M A N A G E M E N T   N A V I G A T I O N   P A G E  *                                                                       
+ *                T O   D O   N A V I G A T I O N   P A G E                   *
  *                                                                            *
  *                                                                            *
  *                                                                            *
  ******************************************************************************
 -->
 <html>
-    <body bgcolor="aqua">
-        <center><h1><font color="Blue">Resource Management</h1></font>
-            <nav>
-                <ul>
-                  <a href="ToDoResourceSearchDriver.php">Resource Search</a>
-                </ul>
-                <ul>
-                  <a href="ToDoResourceAddDriver.php">Add New Resourse</a>
-                </ul>
-                <ul>
-                  <a href="ToDoResourceDeleteDriver.php">Delete Existing Resource</a>
-                </ul>
-                <ul>
-                  <a href="ToDoResourceUpdateDriver.php">Update Existing Resource</a>
-                </ul>
-            </nav>
-            <a href="ToDoNav.html"><strong>Click here to return to To Do Main Menu</strong></a><br><br><br>
-        </center>
-    </body>
-    
+<body bgcolor="aqua">
+<center><h1><font color="Blue">To Do Main Menu </h1></font>
+    <h3><u>Resource Management</h3></u>
+    <nav>
+        <ul>
+            <a href="/resource/index.php">Resource Menu</a>
+        </ul>
+        <h3><u>Task Management</h3></u>
+        <ul>
+            <a href="ToDoTaskNav.html">Task Menu</a>
+        </ul>
+        <h3><u>Budget Management</h3></u>
+        <ul>
+            <a href="ToDoBudgetNav.html">Budget Menu</a>
+        </ul>
+    </nav>
+</center>
+</body>
 <!--
  ******************************************************************************
  *                                                                            *
  *                                                                            *
  *                                                                            *
- * E N D  R E S O U R C E  M A N A G E M E N T  N A V I G A T I O N  P A G E  *                                                                       
+ *         E N D  T O   D O   N A V I G A T I O N   P A G E                   *
  *                                                                            *
  *                                                                            *
  *                                                                            *
  ******************************************************************************
 -->
-    
 </html>
