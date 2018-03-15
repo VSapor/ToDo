@@ -33,7 +33,7 @@ $deleteQuery = "DELETE FROM `resources` WHERE `id` IN ($inClause)";
 
 #run DELETE query and test if it was successful
 if(mysqli_query($link,$deleteQuery)) {
-    $deleteMessage = $numSelected.' resource records successfully deleted';
+    $deleteMessage = 'The following '.$numSelected.' resource record(s) successfully deleted: '.$inClause;
 }#END IF DELETE query successful
 else { #ELSE query FAILED
     $deleteMessage = 'DELETE Query failed.'.mysqli_error($link);

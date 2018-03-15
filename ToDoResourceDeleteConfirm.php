@@ -32,9 +32,11 @@ if (isset($_POST['selected'])) { #submit key clicked
  *          DISPLAY RECORDS KEYS SELECTED FOR DELETE BACK TO USER             *
  ******************************************************************************/
         $numSelected = count($_POST['selected']);
+        $_SESSION['numSelected'] = $numSelected;
         echo '<center><strong>'.'You selected these '.$numSelected.' resource ID(s): ';
-        echo $selectedString = implode(',',$_POST['selected']);
-
+        echo $inClause = implode(',',$_POST['selected']);
+        $_SESSION['inClause'] = $inClause;
+                
         if ($numSelected == 0) { # no records selected
             echo 'No records selected for delete.'.'<br>';
         } # END IF at least 1 record selected

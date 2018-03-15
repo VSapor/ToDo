@@ -15,10 +15,6 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-#initialize local variables from SESSION variables already set
-$inClause = $_SESSION['inClause'];
-$numSelected = $_SESSION['numSelected'];
-
 #assign variables used in connect.inc.php
 $mySQLHost = 'localhost';
 $mySQLUserName = 'root';
