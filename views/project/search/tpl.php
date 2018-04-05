@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Resource Search Menu</title>
+        <title>Project Search Menu</title>
         <meta charset="windows-1252">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -37,7 +37,7 @@
             </p>
         <?php endif; ?>
 
-        <?php echo view('resource/search/form'); ?>
+        <?php echo view('project/search/form'); ?>
 
         <?php if($errors): ?>
             <?php foreach($errors as $msg): ?>
@@ -48,7 +48,7 @@
         <?php endif; ?>
 
         <?php if($results !== false): ?>
-            <?php echo view('resource/search/results', ['results' => $results]); ?>
+            <?php echo view('project/search/results', ['results' => $results]); ?>
         <?php endif; ?>
 
         <!-- Printing some vars for debugging purposes.  Can be removed when no longer needed -->

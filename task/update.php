@@ -2,7 +2,7 @@
 /*******************************************************************************
  *                                                                             *
  *                                                                             *
- *               R E S O U R C E   U P D A T E   D R I V E R                   *
+ *                     T A S K   U P D A T E   D R I V E R                     *
  *                                                                             *
  *                                                                             *                                                                         *
  ******************************************************************************/
@@ -13,12 +13,12 @@ $errors = false;
 if (count($_REQUEST['selected']) > 1) {
     $msg = 'Only 1 record can be selected for update at a time.';
     $_SESSION['FLASH_MSG'] = $msg;
-    header('Location: /projects/ToDo/resource/index.php?search');
+    header('Location: /projects/ToDo/task/index.php?search');
     exit;    
 } //END IF MORE THAN 1 RECORD SELECTED
 
-//only 1 record seleted for update
-if (selected_record_found('resource')) {
+//only 1 record seleted for update 
+if (selected_record_found()) {
     unset($_REQUEST['action']);
     require_once 'updateSQL.php';
 } //END IF selected record found

@@ -2,7 +2,7 @@
 /*******************************************************************************
  *                                                                             *
  *                                                                             *
- *          R E S O U R C E   M A I N   N A V I G A T I O N   M E N U          *
+ *          T A S K   M A I N   N A V I G A T I O N   M E N U                  *
  *                                                                             *
  *                                                                             *
  ******************************************************************************/
@@ -13,13 +13,7 @@ require_once '../main.php';
 $route = strtolower(array_keys($_REQUEST)[0]);
 
 switch($route) {
-    case 'mod':                            // Perform action on selected resources (this can be update, delete or show assigned tasks)
-        if (!isset($_REQUEST['selected']) && !isset($_REQUEST['confirm'])) { //page submitted without making a selection
-            $msg = 'You must select at least one record to proceed.';
-            $_SESSION['FLASH_MSG'] = $msg;
-            header('Location: /projects/ToDo/resource/index.php?search');
-            exit;  
-        }
+    case 'mod':                             // Perform action on selected task (this can be update, delete, show dependencies, or show successors)
         switch(strtolower($_REQUEST['action'])) {
             case 'delete':                  // Handle delete
                 require_once 'delete.php';
@@ -29,16 +23,20 @@ switch($route) {
                 require_once 'update.php';
                 break;
             
-            case 'showtasks':                  // Handle show assigned tasks
-                require_once 'showtasks.php';
+            case 'dependencies':                  // Handle show dependencies
+                require_once 'showdependencies.php';
                 break;
+            
+            case 'successors':                  // Handle show successors
+                require_once 'showsuccessors.php';
+                break; 
         }
         break;
     
-    case 'search':                          // Show the resource search
+    case 'search':                          // Show the task search
         require_once 'search.php';
         break;
-       
-            default:                                // Just show the resource "home"
-        echo view('resource/home');
+        
+    default:                                // Just show the task "home"
+        echo view('task/home');
 }

@@ -4,7 +4,7 @@
  *                                                                            *
  *                                                                            *
  *                                                                            *
- *                R E S O U R C E    A D D   M A I N   M E N U                *
+ *                P R O J E C T    A D D   M A I N   M E N U                  *
  *                                                                            *
  *                                                                            *
  *                                                                            *
@@ -19,7 +19,7 @@
         </p>
     <?php endif; ?>
 
-    <center><h2><u><font color="Blue">Resource Add Menu</h2></u></font>
+    <center><h2><u><font color="Blue">Project Add Menu</h2></u></font>
         <br><br><br>
 
         <?php if($errors): ?>
@@ -30,7 +30,7 @@
             <?php endforeach; ?>
         <?php endif; ?>
 
-        <form action="/projects/ToDo/resource/add.php" method="post">
+        <form action="/projects/ToDo/project/add.php" method="post">
             <input type="hidden" name="action" value="add" />
             <center>
                 <div>
@@ -46,8 +46,8 @@
                     <textarea rows="4" cols="50" id="title" name="notes" maxlength='100'><?php if(isset($input['notes'])) { echo $input['notes'];} ?></textarea>
                     <br>
                     <p>* Required</p>
-                    <input type="submit" name="submit" value="Add Resource"><br><br><br>
-                    <a href="/projects/ToDo/resource/index.php"><strong>Click here to return to Resource Management Menu</strong></a>
+                    <input type="submit" name="submit" value="Add Project"><br><br><br>
+                    <a href="/projects/ToDo/project/index.php"><strong>Click here to return to Project Management Menu</strong></a>
                 </div>
             </center>
         </form>

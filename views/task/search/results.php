@@ -4,14 +4,14 @@
  *                                                                            *
  *                                                                            *
  *                                                                            *
- *          R E S O U R C E   S E A R C H   R E S U L T S   P A G E           *                                    
+ *               T A S K   S E A R C H   R E S U L T S   P A G E              *                                    
  *                                                                            *
  *                                                                            *
  *                                                                            *
  ******************************************************************************
 -->
-    <form action="/projects/ToDo/resource/index.php?mod" method="POST">
-        <h1 style="text-align: center; color: blue;">Resource Search Results</h1>
+    <form action="/projects/ToDo/task/index.php?mod" method="POST">
+        <h1 style="text-align: center; color: blue;">Task Search Results</h1>
 
         <table class="search-results-table">
             <thead>
@@ -25,19 +25,20 @@
                     <th>Unavail Date End</th>
                     <th>Skill</th>
                     <th>Daily Rate</th>
+                    <th>Task ID</th>
                     <th>Notes</th>
                 </tr>
             </thead>
             <tbody>
-                <?php unset($_SESSION['results[]']); $row=0; ?>
-                <?php foreach($results as $resource): ?>
-                    <?php $_SESSION['results[]'][$row] = $resource; $row++;?>
+                <?php unset($_SESSION['results[]']);; $row=0; ?>
+                <?php foreach($results as $task): ?>
+                    <?php $_SESSION['results[]'][$row] = $task; $row++;?>
                     <tr>
                         <td>
-                            <input type="checkbox" name="selected[]" value="<?php echo $resource['resource_id']; ?>">
+                            <input type="checkbox" name="selected[]" value="<?php echo $task['id']; ?>">
                         </td>
 
-                    <?php foreach($resource as $k => $v): ?>
+                    <?php foreach($task as $k => $v): ?>
                         <td>
                             <?php echo htmlspecialchars($v);?>
                         </td>
@@ -48,7 +49,7 @@
                 <!-- No search results -->
                 <?php if(!$results): ?>
                     <tr>
-                        <td colspan="9" style="text-align: center; font-style: italic; padding: 20px;">No resources matched your query.</td>
+                        <td colspan="9" style="text-align: center; font-style: italic; padding: 20px;">No tasks matched your query.</td>
                     </tr>
                 <?php endif; ?>
             </tbody>
@@ -56,11 +57,12 @@
             <br><br>
             <button type="submit" name="action" value="update">Update (1) Selection</button>
             <button type="submit" name="action" value="delete">Delete Selected</button>
-            <button type="submit" name="action" value="showtasks">Show Assigned Tasks</button>
-            
+            <button type="submit" name="action" value="dependencies">Show Dependencies</button>
+            <button type="submit" name="action" value="successors">Show Successors</button>
+
         <br><br><br>
-        <a href="/projects/ToDo/resource/index.php">
-            <strong>Click here to return to Resource Management Menu</strong>
+        <a href="/projects/ToDo/task/index.php">
+            <strong>Click here to return to Task Management Menu</strong>
         </a>
         <br><br><br>
     </form>

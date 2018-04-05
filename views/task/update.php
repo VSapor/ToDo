@@ -4,7 +4,7 @@
  *                                                                            *
  *                                                                            *
  *                                                                            *
- *         R E S O U R C E   U P D A T E   M A I N   M E N U                  *
+ *               T A S K   U P D A T E   M A I N   M E N U                    *
  *                                                                            *
  *                                                                            *
  *                                                                            *
@@ -19,7 +19,7 @@
         </p>
     <?php endif; ?>
 
-    <center><h2><u><font color="Blue">Resource Update Menu</h2></u></font>
+    <center><h2><u><font color="Blue">Task Update Menu</h2></u></font>
         <br><br><br>
 
         <?php if($errors): ?>
@@ -30,7 +30,7 @@
             <?php endforeach; ?>
         <?php endif; ?>
 
-        <form action="/projects/ToDo/resource/updateSQL.php?action=update" method="POST">
+        <form action="/projects/ToDo/task/updateSQL.php?action=update" method="POST">
             <input type="hidden" name="action" value="update" />
             <center>
                 <div>
@@ -47,18 +47,10 @@
                     <textarea rows="4" cols="50" id="title" name="notes" maxlength='100'><?php if(isset($_SESSION['selectedNotes'])) {echo $_SESSION['selectedNotes'];} ?></textarea>
                     <br>
                     <p>* Required</p>
-                    <input type="submit" name="submit" value="Update Resource"><br><br><br>
-                    <a href="/projects/ToDo/resource/index.php"><strong>Click here to return to Resource Management Menu</strong></a>
+                    <input type="submit" name="submit" value="Update Task"><br><br><br>
+                    <a href="/projects/ToDo/task/index.php"><strong>Click here to return to Task Management Menu</strong></a>
                 </div>
             </center>
         </form>
     </body>
-    <!-- Printing some vars for debugging purposes.  Can be removed when no longer needed -->
-        <pre style="padding: 20px; border: 1px solid #ccc; background: #fff;">
-            Results: <?php print_r($results); ?>
-
-            Request: <?php print_r($_REQUEST); ?>
-
-            Session: <?php print_r($_SESSION); ?>
-        </pre>
 </html>

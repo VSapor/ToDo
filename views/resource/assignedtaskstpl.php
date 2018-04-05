@@ -6,25 +6,25 @@
 
         <!-- CSS style can replace inline html style -->
         <style>
-            .search-results-table {
+            .assigned-tasks-results-table {
                 width: 100%;
                 border-collapse: collapse;
             }
-            .search-results-table thead th {
+            .assigned-tasks-results-table thead th {
                 padding: 3px 5px;
                 font-weight: bold;
             }
-            .search-results-table tbody td {
+            .assigned-tasks-results-table tbody td {
                 padding: 3px 5px;
                 border: 1px solid #ccc;
                 background: #fff;
             }
-            .search-results-table tbody td {
+            .assigned-tasks-results-table tbody td {
                 padding: 3px 5px;
                 border: 1px solid #ccc;
                 background: #fff;
             }
-            .search-results-table tbody tr:nth-last-of-type(even) td {
+            .assigned-tasks-results-table tbody tr:nth-last-of-type(even) td {
                 background: #e8e8e8;
             }
         </style>
@@ -37,18 +37,16 @@
             </p>
         <?php endif; ?>
 
-        <?php echo view('resource/search/form'); ?>
-
         <?php if($errors): ?>
             <?php foreach($errors as $msg): ?>
-                <p class="search-error" style="color: red; text-align: center;">
+                <p class="assigned-tasks-error" style="color: red; text-align: center;">
                     <?php echo $msg; ?>
                 </p>
             <?php endforeach; ?>
         <?php endif; ?>
 
         <?php if($results !== false): ?>
-            <?php echo view('resource/search/results', ['results' => $results]); ?>
+            <?php echo view('resource/assignedtasksresults', ['results' => $results]); ?>
         <?php endif; ?>
 
         <!-- Printing some vars for debugging purposes.  Can be removed when no longer needed -->

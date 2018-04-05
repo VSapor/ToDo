@@ -2,7 +2,7 @@
 /*******************************************************************************
  *                                                                             *
  *                                                                             *
- *                R E S O U R C E   A D D   D R I V E R                        *
+ *                       T A S K   A D D   D R I V E R                         *
  *                                                                             *
  *                                                                             *                                                                         *
  ******************************************************************************/
@@ -22,16 +22,16 @@ if(isset($_REQUEST['action']) && $_REQUEST['action'] = 'add') {
     }
     else {
        // Add new record
-        $addQuery = "INSERT INTO `resources` 
+        $addQuery = "INSERT INTO `tasks` 
             (
-                `resource_first_name`, 
-                `resource_last_name`, 
-                `resource_pct_avail`, 
-                `resource_unavail_date_start`, 
-                `resource_unavail_date_end`, 
-                `resource_skill`, 
-                `resource_daily_rate`, 
-                `resource_notes`
+                `first_name`, 
+                `last_name`, 
+                `pct_avail`, 
+                `unavail_date_start`, 
+                `unavail_date_end`, 
+                `skill`, 
+                `daily_rate`, 
+                `notes`
             ) 
         VALUES 
             ( 
@@ -46,12 +46,12 @@ if(isset($_REQUEST['action']) && $_REQUEST['action'] = 'add') {
             )";
 
         $result = db_query($addQuery);
-        if($result) $_SESSION['FLASH_MSG'] = 'Successfully added resource ID: '.db_insert_id();
+        if($result) $_SESSION['FLASH_MSG'] = 'Successfully added task ID: '.db_insert_id();
         else $errors[] = 'ADD Query failed.'.mysqli_error($link);
     }
 }
 
-echo view('resource/add', [
+echo view('task/add', [
     'input' => $_REQUEST,
     'errors' => $errors
 ]);

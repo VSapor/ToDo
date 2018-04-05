@@ -2,7 +2,7 @@
 /*******************************************************************************
  *                                                                             *
  *                                                                             *
- *          R E S O U R C E   M A I N   N A V I G A T I O N   M E N U          *
+ *          P R O J E C T   M A I N   N A V I G A T I O N   M E N U            *
  *                                                                             *
  *                                                                             *
  ******************************************************************************/
@@ -13,13 +13,13 @@ require_once '../main.php';
 $route = strtolower(array_keys($_REQUEST)[0]);
 
 switch($route) {
-    case 'mod':                            // Perform action on selected resources (this can be update, delete or show assigned tasks)
+    case 'mod':                            // Perform action on selected projects (this can be update, delete or display project tasks tree diagram)
         if (!isset($_REQUEST['selected']) && !isset($_REQUEST['confirm'])) { //page submitted without making a selection
             $msg = 'You must select at least one record to proceed.';
             $_SESSION['FLASH_MSG'] = $msg;
-            header('Location: /projects/ToDo/resource/index.php?search');
+            header('Location: /projects/ToDo/project/index.php?search');
             exit;  
-        }
+        } //END IF page submitted without selection
         switch(strtolower($_REQUEST['action'])) {
             case 'delete':                  // Handle delete
                 require_once 'delete.php';
@@ -29,16 +29,17 @@ switch($route) {
                 require_once 'update.php';
                 break;
             
-            case 'showtasks':                  // Handle show assigned tasks
-                require_once 'showtasks.php';
+            case 'projecttree':             // Show project tree diagram
+                require_once 'projecttree.php';
                 break;
-        }
+            
+        } //END action switch
         break;
     
-    case 'search':                          // Show the resource search
+    case 'search':                          // Show the project search
         require_once 'search.php';
         break;
-       
-            default:                                // Just show the resource "home"
-        echo view('resource/home');
-}
+    
+    default:                                // Just show the project "home"
+        echo view('project/home');
+} //END route switch
