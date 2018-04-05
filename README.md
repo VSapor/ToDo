@@ -98,6 +98,48 @@ Notes:
 						previously performed.
 						Press the reload button to resubmit the data needed to load the page.
 						ERR_CACHE_MISS
+						
+4/6/18 Added new functionality:
+
+Resource: Show assigned tasks
+Projects: Show project tree diagram with dependencies
+
+Questions:
+1. How to handle mult. recs. selected in UPDATE function. Issue error message and exit???
+
+2. In RESOURCES/VIEWS/SEARCH results.php : 
+a. Tried to use "onclick" with href??
+b. Added logic to make results array multi-dimentional to capture all rows for Update function
+
+3. In views/resource/search/form.php
+
+a. added flash message at top for delete/update canceled and for update mult. recs. selected
+b. italic not showing
+style="text-align: center; font-style: italic;  color: red;"
+
+<p> style="text-align: center; font-style: italic;  color: red;">
+        <?php echo flash_message(); ?>
+</p>
+
+4. In views/update.php - Added if ISSET in input fields to reshow fields on click
+
+5. removed interactive tests/variables. always show checkboxes
+
+6. How to clear our SESSION data?
+
+7. created functions for search for match for update and for build where clause for
+
+8. Project folder: results - resolving 0 in case? resolving 0 in function 'build where clause'
+
+9. printtree - not printing title
+
+10. assignedtasksTPL file / assignedtasksresults - Table formatting; fitted cell sizes ???
+
+11. in tasksassignedresults don't know how to test for empty results because of multi-dimensional array always returns. TRUE. Added Logic in SHOWTASKS to test number of rows and set results = null if no rows found??
+
+12. in search/index added logic for page submitted w/o selecting record. issue error message and return to search home???
+
+13. How to show search results on new page? 
 	
 	
 	
