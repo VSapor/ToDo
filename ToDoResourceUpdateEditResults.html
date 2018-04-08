@@ -1,0 +1,55 @@
+</html>
+<!DOCTYPE html>
+<!--
+ ******************************************************************************
+ *                                                                            *
+ *                                                                            *
+ *                                                                            *
+ *                D I S P L A Y   D A T A B A S E   C O N T E N T             *
+ *                             F O R   E D I T I N G                          *                                                                       
+ *                                                                            *
+ *                                                                            *
+ *                                                                            *
+ ******************************************************************************
+-->
+<body bgcolor="aqua">
+    <center><h2><u><font color="Blue">Resource Update Menu</h2></u></font>
+    <br><br><br>
+    <form action="ToDoResourceUpdateEditResults.php" method="post">
+        <center>
+        <input type="hidden" name="id" value=<?php echo $_SESSION['selectedID'].'<br>';?>
+        <div>
+            <strong>ID:</strong> <?php echo $_SESSION['selectedID'];?></p>
+            <strong>First Name: *</strong> <input type="text" maxlength = "20" name="firstname" value="<?php echo $_SESSION['selectedFirstName'];?>"><br>
+            <strong>Last Name: *</strong> <input type="text" maxlength = "20" name="lastname" value="<?php echo $_SESSION['selectedLastName'];?>"><br>
+            <strong>% Available: *</strong> <input type="number" step="any" name="pctavail" value="<?php echo $_SESSION['selectedPctAvail'];?>"><br>
+            <strong>Unavailable Date Start: </strong> <input type="date" name="unavaildatestart" value="<?php echo $_SESSION['selectedUnavailDateStart'];?>"><br>
+            <strong>Unavailable Date End: </strong> <input type="date" name="unavaildateend" value="<?php echo $_SESSION['selectedUnavailDateEnd'];?>"><br>
+            <strong>Skill: *</strong> <input type="text" maxlength = "15" name="skill" value="<?php echo $_SESSION['selectedSkill'];?>"><br>
+            <strong>Daily Rate: *</strong> <input type="number" step="any" name="dailyrate" value="<?php echo $_SESSION['selectedDailyRate'];?>"><br>
+            <label for="title"><strong>Notes:</strong> </label>
+            <br>
+            <textarea rows="4" cols="50" id="title" name="notes" maxlength='100'><?php echo $_SESSION['selectedNotes'];?></textarea>
+            <br>
+            <p>* Required</p>
+            <input type="submit" name="submit" value="Update Resource"><br><br><br>
+            <a href="ToDoResourceNav.html"><strong>Click here to return to Resource Management Menu</strong></a>
+        </div>
+        </center>
+    </form>
+</body>
+
+</html>
+
+<!--
+ ******************************************************************************
+ *                                                                            *
+ *                                                                            *
+ *                                                                            *
+ *           E N D   D I S P L A Y   D A T A B A S E   C O N T E N T          *
+ *                          F O R   E D I T I N G                             *                                                                       
+ *                                                                            *
+ *                                                                            *
+ *                                                                            *
+ ******************************************************************************
+-->

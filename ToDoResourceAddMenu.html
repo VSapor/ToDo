@@ -1,0 +1,54 @@
+</html>
+<!DOCTYPE html>
+<!--
+ ******************************************************************************
+ *                                                                            *
+ *                                                                            *
+ *                                                                            *
+ *               R E S O U R C E   A D D   M A I N   M E N U                  *
+ *                                                                            *                                                                       
+ *                                                                            *
+ *                                                                            *
+ *                                                                            *
+ ******************************************************************************
+-->
+<body bgcolor="aqua">
+    <center><h2><u><font color="Blue">Resource Add Menu</h2></u></font>
+    <br><br><br>
+    <form action="ToDoResourceAddMaster.php" method="post">
+        <center>
+        <div>
+            <strong>ID: </strong> <input type="number" name="id" maxlength="11" value="<?php if(isset($_POST['id'])) { echo $_POST['id'];} ?>"><br>
+            <strong>First Name: *</strong> <input type="text" maxlength = "20" name="firstname" value="<?php if(isset($_POST['firstname'])) { echo $_POST['firstname'];} ?>"><br>
+            <strong>Last Name: *</strong> <input type="text" maxlength = "20" name="lastname" value="<?php if(isset($_POST['lastname'])) { echo $_POST['lastname'];} ?>"><br>
+            <strong>% Available: *</strong> <input type="number" step="any" name="pctavail" value="<?php if(isset($_POST['pctavail'])) { echo $_POST['pctavail'];} ?>"><br>
+            <strong>Unavailable Date Start: </strong> <input type="date" name="unavaildatestart" value="<?php if(isset($_POST['unavaildatestart'])) { echo $_POST['unavaildatestart'];} ?>"><br>
+            <strong>Unavailable Date End: </strong> <input type="date" name="unavaildateend" value="<?php if(isset($_POST['unavaildateend'])) { echo $_POST['unavaildateend'];} ?>"><br>
+            <strong>Skill: *</strong> <input type="text" maxlength = "15" name="skill" value="<?php if(isset($_POST['skill'])) { echo $_POST['skill'];} ?>"><br>
+            <strong>Daily Rate: *</strong> <input type="number" step="any" name="dailyrate" value="<?php if(isset($_POST['dailyrate'])) { echo $_POST['dailyrate'];} ?>"><br>
+            <label for="title"><strong>Notes:</strong> </label>
+            <br>
+            <textarea rows="4" cols="50" id="title" name="notes" maxlength='100'><?php if(isset($_POST['notes'])) { echo $_POST['notes'];} ?></textarea>
+            <br>
+            <p>* Required</p>
+            <input type="submit" name="submit" value="Add Resource"><br><br><br>
+            <a href="ToDoResourceNav.html"><strong>Click here to return to Resource Management Menu</strong></a>
+        </div>
+        </center>
+    </form>
+</body>
+
+</html>
+
+<!--
+ ******************************************************************************
+ *                                                                            *
+ *                                                                            *
+ *                                                                            *
+ *             E N D   R E S O U R C E   A D D   M A I N   M E N U            *
+ *                                                                            *                                                                       
+ *                                                                            *
+ *                                                                            *
+ *                                                                            *
+ ******************************************************************************
+-->
