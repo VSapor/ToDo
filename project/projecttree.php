@@ -8,6 +8,50 @@
  ******************************************************************************/
 require_once '../main.php';
 
+// Check child tasks (dependencies) of a parent task
+function childTasks($parentId) {
+    // Get all the task that belong to this task
+    $childTasks = db_results("SELECT task_id, task_name FROM tasks_new WHERE task_parent = ".$parentId);
+
+    // Loop through each child and see if it has children
+    foreach($childTasks as $k => $task) {
+        $childTasks[$k]['child_tasks'] = childTasks($task['task_id']);
+    }
+    return $childTasks;
+}
+
+// Get tasks for each selected project recursively
+$projects = [];
+foreach((array) $_REQUEST['selected'] as $projectId) {
+    // All tasks with task_parent_id = 0 are top-level tasks, get those and find children of each recursively
+    $topLevelTasks = db_results("SELECT task_id, task_name FROM tasks_new WHERE task_project_id = ".$projectId." AND task_parent = 0");
+    foreach($topLevelTasks as $k => $task) {
+        $topLevelTasks[$k]['child_tasks'] = childTasks($task['task_id']);
+    }
+
+    $projects[$projectId] = [
+        'id' => $projectId,
+        'tasks' => $topLevelTasks,
+    ];
+}
+
+echo view('project/search/task_tree/tpl', [
+    'projects' => $projects
+]);
+exit;
+
+
+
+
+
+
+
+
+
+
+
+
+
 //function to print project tasks with dependencies
 function printProjectTree( $task_id, $task_name ) { //recursive function
     

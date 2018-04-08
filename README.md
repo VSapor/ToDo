@@ -146,3 +146,90 @@ style="text-align: center; font-style: italic;  color: red;"
 	
 	
   
+
+<br /><br /><br /><br />
+Recommended new tasks table/structure
+```
+CREATE TABLE `tasks_new` (
+  `task_id` int(11) NOT NULL,
+  `task_name` varchar(100) NOT NULL,
+  `task_project_id` int(11) NOT NULL,
+  `task_parent` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `task_priority` int(11) NOT NULL COMMENT '5=Critical, 4=High, 3=Medium, 2=Low, 1=Optional',
+  `task_duration` decimal(5,2) NOT NULL,
+  `task_start_by_date` date NOT NULL,
+  `task_end_by_date` date NOT NULL,
+  `tasl_actual_start_date` date NOT NULL,
+  `task_actual_end_date` date NOT NULL,
+  `task_status` int(11) NOT NULL COMMENT '0=Not Scheduled, 1=Scheduled, 2=Started, 3=Completed, 4=Pending, 5=Canceled',
+  `task_notes` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tasks_new`
+--
+
+INSERT INTO `tasks_new` (`task_id`, `task_name`, `task_project_id`, `task_parent`, `task_priority`, `task_duration`, `task_start_by_date`, `task_end_by_date`, `tasl_actual_start_date`, `task_actual_end_date`, `task_status`, `task_notes`) VALUES
+(101, 'Remove existing cabinets from basement kitchen.', 1000, 0, 1, '1.00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 0, ''),
+(102, 'Install new cabinets in basement kitchen', 1000, 0, 1, '1.00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 0, ''),
+(103, 'Remove existing kitchen sink from basement kitchen', 1000, 0, 2, '0.50', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 0, ''),
+(104, 'Install new kitchen sink in basement kitchen', 1000, 0, 2, '0.50', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 0, ''),
+(105, 'Install Split HV/AC unit in basement L/R and B/R', 2000, 0, 2, '1.00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 0, ''),
+(106, 'Install egress window in basement B/R', 3000, 0, 1, '3.00', '2018-02-26', '2018-02-28', '0000-00-00', '0000-00-00', 0, ''),
+(107, 'Change light fixtures and GFI outlets in basement kitchen and utility room', 1000, 0, 1, '1.00', '2018-01-22', '2018-01-22', '2018-01-22', '2018-01-23', 0, ''),
+(108, 'Purchase egress window', 3000, 0, 1, '0.25', '2018-02-12', '2018-02-23', '2018-02-12', '2018-02-20', 0, ''),
+(109, 'Change outside light fixtures and GFI outlets.', 0, 0, 1, '1.00', '2018-01-23', '2018-01-23', '2018-01-26', '2018-01-26', 0, ''),
+(1000, 'Parent Task 1', 10000, 0, 0, '1.00', '2019-01-01', '2019-01-02', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(1100, 'Task 1000 Child 1', 10000, 1000, 0, '2.00', '2018-12-13', '2018-12-14', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(1110, 'Task 1000 Grandchild 1', 10000, 1100, 0, '3.00', '2018-12-07', '2018-12-09', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(1111, 'Task 1000 Great Grandchild 1', 10000, 1110, 0, '4.00', '2018-12-01', '2018-12-04', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(1112, 'Task 1000 Great Grandchild 2', 10000, 1110, 0, '4.00', '2018-12-05', '2018-12-09', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(1120, 'Task 1000 Grandchild 2', 10000, 1100, 0, '3.00', '2018-12-10', '2018-12-12', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(1200, 'Task 1000 Child 2', 10000, 1000, 0, '2.00', '2018-12-18', '2018-12-19', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(1210, 'Task 1000 Grandchild 3', 10000, 1200, 0, '3.00', '2018-12-15', '2018-12-17', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(1211, 'Task 1000 Great Grandchild 3', 10000, 1210, 0, '4.00', '2018-12-10', '2018-12-14', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(1300, 'Task 1000 Child 3', 10000, 1000, 0, '2.00', '2018-12-29', '2018-12-30', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(2000, 'Parent Task 2', 10000, 0, 0, '1.00', '2019-02-01', '2019-02-02', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(2100, 'Task 2000 Child 1', 10000, 2000, 0, '2.00', '2019-01-08', '2019-01-09', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(2110, 'Task 2000 Grandchild 1', 10000, 2100, 0, '3.00', '2019-01-05', '2019-01-07', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(2111, 'Task 2000 Great Grandchild 1', 10000, 2110, 0, '4.00', '2019-01-01', '2019-01-04', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(2120, 'Task 2000 Grandchild 2', 10000, 2100, 0, '3.00', '2019-01-01', '2019-01-03', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(2200, 'Task 2000 Child 2', 10000, 2000, 0, '2.00', '2019-01-01', '2019-01-02', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(2300, 'Task 2000 Child 3', 10000, 2000, 0, '2.00', '2019-01-19', '2019-01-20', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(2310, 'Task 2000 Grandchild 3', 10000, 2300, 0, '3.00', '2019-01-13', '2019-01-15', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(2311, 'Task 2000 Great Grandchild 2', 10000, 2310, 0, '4.00', '2019-01-05', '2019-01-08', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(2312, 'Task 2000 Great Grandchild 3', 10000, 2310, 0, '0.00', '2019-01-09', '2019-01-12', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(2320, 'Task 2000 Grandchild 3', 10000, 2300, 0, '3.00', '2019-01-01', '2019-01-01', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(3000, 'Parent Task 3', 10000, 0, 0, '1.00', '2019-03-01', '2019-03-02', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(3100, 'Task 3000 Child 1', 10000, 3000, 0, '2.00', '2019-02-08', '2019-02-09', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(3110, 'Task 3000 Grandchild 1', 10000, 3100, 0, '3.00', '2019-02-05', '2019-02-07', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(3111, 'Task 3000 Great Grandchild 1', 10000, 3110, 0, '4.00', '2019-02-01', '2019-02-04', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(3200, 'Task 3000 Child 2', 10000, 3000, 0, '2.00', '2019-02-12', '2019-02-13', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(3210, 'Task 3000 Grandchild 2', 10000, 3200, 0, '3.00', '2019-02-09', '2019-02-11', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(3211, 'Task 3000 Great Grandchild 2', 10000, 3210, 0, '4.00', '2019-02-05', '2019-02-08', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(3220, 'Task 3000 Grandchild 3', 10000, 3210, 0, '3.00', '2019-02-13', '2019-02-15', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(3221, 'Task 3000 Great Grandchild 3', 10000, 3220, 0, '4.00', '2019-02-12', '2019-02-16', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(3230, 'Task 3000 Grandchild 4', 10000, 3200, 0, '3.00', '2019-02-17', '2019-02-19', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data'),
+(3231, 'Task 3000 Great Grandchild 4', 10000, 3230, 0, '4.00', '2019-02-17', '2019-02-20', '0000-00-00', '0000-00-00', 0, 'Critical Path Test Data');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tasks_new`
+--
+ALTER TABLE `tasks_new`
+  ADD PRIMARY KEY (`task_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tasks_new`
+--
+ALTER TABLE `tasks_new`
+  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3232;COMMIT;
+
+```
