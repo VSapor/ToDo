@@ -12,7 +12,7 @@
 -->
     <form action="/projects/ToDo/resource/index.php?mod" method="POST">
         <h1 style="text-align: center; color: blue;">Resource Search Results</h1>
-
+        
         <table class="search-results-table">
             <thead>
                 <tr>
@@ -35,6 +35,7 @@
                     <tr>
                         <td>
                             <input type="checkbox" name="selected[]" value="<?php echo $resource['resource_id']; ?>">
+                            <input type="button" value="Edit" onClick="window.location='/projects/ToDo/resource/update.php?row=<?php echo $row-1 ?>'">
                         </td>
 
                     <?php foreach($resource as $k => $v): ?>
@@ -54,7 +55,7 @@
             </tbody>
         </table>
             <br><br>
-            <button type="submit" name="action" value="update">Update (1) Selection</button>
+            
             <button type="submit" name="action" value="delete">Delete Selected</button>
             <button type="submit" name="action" value="showtasks">Show Assigned Tasks</button>
             

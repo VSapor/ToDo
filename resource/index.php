@@ -24,10 +24,6 @@ switch($route) {
             case 'delete':                  // Handle delete
                 require_once 'delete.php';
                 break;
-
-            case 'update':                  // Handle update
-                require_once 'update.php';
-                break;
             
             case 'showtasks':                  // Handle show assigned tasks
                 require_once 'showtasks.php';
